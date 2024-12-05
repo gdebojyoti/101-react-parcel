@@ -1,21 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 
-// react element
-const headingElm = React.createElement('h1', { key: 'h1' }, 'I got in.')
+import Header from './components/Header'
 
-// react element using jsx
-const subheadingElm = <h2 key='h2'>Let's see how it goes this time</h2>
-
-// functional component
-const ContentComponent = () => {
-  return <>My amazing content..</>
+const App = () => {
+  return <div>
+    <Header />
+  </div>
 }
-
-const containerElm = React.createElement('header', {}, [headingElm, subheadingElm, <ContentComponent key='content' />])
 
 const rootElm = document.getElementById('root')
 
-const root = ReactDOM.createRoot(rootElm)
+const root = createRoot(rootElm)
 
-root.render(containerElm)
+root.render(<App />)
