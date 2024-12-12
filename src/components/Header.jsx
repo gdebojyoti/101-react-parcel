@@ -1,4 +1,6 @@
-import { createElement } from 'react'
+import { createElement, useEffect } from 'react'
+
+import useLocalStorage from '../customHooks/useLocalStorage'
 
 // react element
 const headingElm = createElement('h1', { key: 'h1' }, 'I got in 👋🏼')
@@ -6,9 +8,25 @@ const headingElm = createElement('h1', { key: 'h1' }, 'I got in 👋🏼')
 // react element using jsx
 const subheadingElm = <h2 key='h2'>Let's see how it goes this time 🤞🏼</h2>
 
+const obj = {a:1}
+
 const Header = () => {
+  const [lsd, setLsd] = useLocalStorage('meow')
+
+  useEffect(() => {
+    setInterval(() => {
+      setLsd(obj)
+    }, 2000)
+    setTimeout(() => {
+      setLsd('2:3')
+    }, 5000)
+  }, [])
+
+  console.log(lsd)
+
   return <header className="header">
     {headingElm}
+    {/* {lsd} */}
     {subheadingElm}
   </header>
 }
