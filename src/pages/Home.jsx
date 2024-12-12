@@ -1,11 +1,11 @@
-import Header from '../components/Header'
+import pagewrap from '../core/pagewrap'
 
 const Home = () => {
   return (
     <div>
-      <Header />
+      This is my home page..
     </div>
   )
 }
 
-export default Home
+export default pagewrap(Home, { key: 'home' })
