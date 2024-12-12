@@ -4,10 +4,7 @@ import useLocalStorage from '../customHooks/useLocalStorage'
 import { Link } from 'react-router'
 
 // react element
-const headingElm = createElement('h1', { key: 'h1' }, 'I got in 👋🏼')
-
-// react element using jsx
-const subheadingElm = <h2 key='h2'>Let's see how it goes this time 🤞🏼</h2>
+const headingElm = createElement('h1', { key: 'h1' }, 'Welcome to my web page 👋🏼')
 
 const obj = {a:1}
 
@@ -15,24 +12,26 @@ const Header = () => {
   const [lsd, setLsd] = useLocalStorage('meow')
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setLsd(obj)
     }, 2000)
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLsd('2:3')
     }, 5000)
+
+    return () => {
+      clearInterval(interval)
+      clearTimeout(timer)
+    }
   }, [])
 
   console.log(lsd)
 
   return <header className="header">
     {headingElm}
-    {/* {lsd} */}
-    {subheadingElm}
 
     <nav>
       <Link to='/'>Home</Link>
-      <Link to='/about'>About</Link>
     </nav>
   </header>
 }
