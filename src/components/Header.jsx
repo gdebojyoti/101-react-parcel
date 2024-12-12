@@ -1,6 +1,7 @@
 import { createElement, useEffect } from 'react'
 
 import useLocalStorage from '../customHooks/useLocalStorage'
+import { Link } from 'react-router'
 
 // react element
 const headingElm = createElement('h1', { key: 'h1' }, 'I got in 👋🏼')
@@ -28,6 +29,11 @@ const Header = () => {
     {headingElm}
     {/* {lsd} */}
     {subheadingElm}
+
+    <nav>
+      <Link to='/'>Home</Link>
+      <Link to='/about'>About</Link>
+    </nav>
   </header>
 }
 
