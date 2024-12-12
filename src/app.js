@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 
 import Home from './pages/Home'
+import Restaurant from './pages/Restaurant'
 import Error from './pages/Error'
 
 const router = createBrowserRouter([
@@ -11,8 +12,8 @@ const router = createBrowserRouter([
     ErrorBoundary: Error
   },
   {
-    path: '/test',
-    element: <Home />
+    path: '/restaurant/:id/:name',
+    element: <Restaurant />
   }
 ])
 
