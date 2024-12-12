@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 
-function pagewrap (Page, { key }) {
+function pagewrap (Page, { key } = {}) {
   return () => {
     return <>
       <Header key={key} />
